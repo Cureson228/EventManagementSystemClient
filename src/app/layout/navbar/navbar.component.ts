@@ -1,12 +1,18 @@
 import { Component } from '@angular/core';
+import { RouterLink } from "@angular/router";
+import { CommonModule } from '@angular/common'; 
+import { AuthService } from '../../core/services/auth.service';
 
 @Component({
   selector: 'app-navbar',
   standalone: true,
-  imports: [],
+  imports: [RouterLink, CommonModule],
   templateUrl: './navbar.component.html',
   styles: ``
 })
 export class NavbarComponent {
+  constructor(public authService : AuthService){
+
+  }
 
 }

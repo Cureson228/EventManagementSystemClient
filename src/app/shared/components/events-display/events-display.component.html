@@ -1,0 +1,45 @@
+<div class="relative w-full py-8">
+  <!-- Кнопка вліво -->
+  <button
+    (click)="previous()"
+    class="absolute left-4 top-1/2 -translate-y-1/2 text-4xl text-gray-400 hover:text-gray-700 transition transform hover:scale-110"
+  >
+    &lt;
+  </button>
+
+  <!-- Контейнер з івентами -->
+  <div class="overflow-hidden px-16">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div
+        *ngFor="let event of visibleEvents"
+        class="bg-white rounded-2xl shadow-md p-6 flex flex-col justify-between hover:shadow-lg transition min-h-[340px]"
+      >
+        <div>
+          <h3 class="text-lg font-bold mb-2">{{ event.title }}</h3>
+          <p class="text-gray-600 mb-4 line-clamp-3">{{ event.description }}</p>
+
+          <div class="space-y-2 text-sm text-gray-500">
+            <div>📅 {{ event.date }}</div>
+            <div>⏰ {{ event.time }}</div>
+            <div>📍 {{ event.location }}</div>
+            <div>👥 {{ event.participants }}/{{ event.capacity }} participants</div>
+          </div>
+        </div>
+
+        <button
+          class="mt-5 w-full bg-green-600 hover:bg-green-700 text-white font-semibold py-2 rounded-xl transition"
+        >
+          Join Event
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Кнопка вправо -->
+  <button
+    (click)="next()"
+    class="absolute right-4 top-1/2 -translate-y-1/2 text-4xl text-gray-400 hover:text-gray-700 transition transform hover:scale-110"
+  >
+    &gt;
+  </button>
+</div>

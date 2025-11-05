@@ -5,7 +5,9 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
 
 import { routes } from './app.routes';
 import { provideToastr } from 'ngx-toastr';
+import { HTTP_INTERCEPTORS, provideHttpClient, withInterceptors } from '@angular/common/http';
+import { JwtInterceptor } from './core/interceptors/jwt.interceptor';
 
 export const appConfig: ApplicationConfig = {
-  providers: [provideRouter(routes),provideAnimationsAsync(),provideToastr()]
+  providers: [provideRouter(routes),provideAnimationsAsync(),provideToastr(), provideHttpClient(withInterceptors([JwtInterceptor]))]
 };

@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
-import { HomeGuestComponent } from "./home-guest/home-guest.component";
+import { EventsDisplayComponent } from '../../shared/components/events-display/events-display.component';
+
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [HomeGuestComponent],
+  imports: [EventsDisplayComponent],
   templateUrl: './home.component.html',
   styles: ``
 })
