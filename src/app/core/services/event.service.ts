@@ -15,4 +15,25 @@ export class EventService {
   createEvent(eventData: any): Observable<any>{
     return this.http.post(environment.apiBaseUrl + '/events/create', eventData);
   }
+  getPublicEvents() : Observable<any> {
+    return this.http.get<Event[]>(environment.apiBaseUrl + '/events');
+  }
+  getEventDetails(id : number) : Observable<any> {
+    return this.http.get<Event>(environment.apiBaseUrl + '/events/' + id)
+  }
+  updateEvent(id : number, updatedEvent : any) : Observable<any> {
+    return this.http.patch(environment.apiBaseUrl + '/events/' + id,updatedEvent);
+  }
+  getUserEvents() : Observable<any> {
+    return this.http.get<Event[]>(environment.apiBaseUrl + '/users/me/events');
+  }
+  deleteEvent(id : number) : Observable<any> {
+    return this.http.delete(environment.apiBaseUrl + '/events/' + id);
+  }
+  joinEvent(id : number) : Observable<any> {
+    return this.http.post(environment.apiBaseUrl + '/events/' + id + '/join', {});
+  }
+  leaveEvent(id: number) : Observable<any> {
+    return this.http.post(environment.apiBaseUrl + '/events/' + id + '/leave', {});
+  }
 }
